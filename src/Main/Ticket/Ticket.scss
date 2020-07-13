@@ -1,0 +1,51 @@
+.ticket {
+    ul {
+        list-style-type: none;
+    }
+    width: 100%;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    .header {
+        padding: 5px;
+        background: rgb(46, 22, 114);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #fff;
+        h5 {
+            text-align: right;
+        }
+        small {
+            font-size: 9px;
+        }
+    }
+    .content {
+        hr {
+            margin-top: 10px;
+        }
+        padding: 5px 10px;
+        span {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        &-flight {
+            margin-top: 30px;
+        }
+        .info {
+            display: flex;
+            justify-content: space-between;
+        }     
+    }
+    button {
+        padding: 5px;
+        color: #fff;
+        background: rgb(228, 34, 34);
+        border: none;
+        width: 100%;
+        cursor: pointer;
+        &:hover {
+            background: rgb(241, 38, 38);
+        }
+    }
+}

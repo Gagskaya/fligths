@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.scss";
+import { Sidebar } from "./Sidebar";
+import { Main } from "./Main";
+import { connect } from "react-redux";
+import { setData } from "./actions/setData";
+import { useEffect } from "react";
+import axios from "axios";
+import { orderBy } from "lodash";
+import { sortData } from "./actions/sortData";
 
-function App() {
+function App(props) {
+  const { setData, flights, sortData } = props;
+  useEffect(() => {
+    axios.get("flights.json").then(({ data }) => {
+      setData(data);
+    });
+  }, [setData]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Sidebar sortData={sortData} />
+      <Main flights={flights} />
     </div>
   );
 }
-
-export default App;
+const mapStateToProps = ({ data, sort }) => ({
+  flights: data.data && data.data.result.flights,
+});
+export default connect(mapStateToProps, { setData, sortData })(App);

@@ -1,0 +1,34 @@
+.sidebar {
+     padding: 15px;
+     label {
+        cursor: pointer;
+    }
+    input[type="checkbox"], input[type="radio"] {
+        cursor: pointer;
+    }
+     ul {
+         list-style-type: none;
+     }
+     &__sort {
+         h5 {
+             margin-bottom: 20px;
+         }
+     }
+     &__filter {
+         h5 {
+            margin-top: 35px;
+         }
+         input {
+             margin-top: 15px;
+             margin-bottom: 15px;
+         }
+     }
+     &__price {
+         h5 {
+             margin-bottom: 15px;
+         }
+         input {
+             margin-bottom: 15px;
+         }
+     }
+}
