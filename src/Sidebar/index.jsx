@@ -1,7 +1,7 @@
 import React from 'react'
 
 import './Sidebar.scss'
-export const Sidebar = ({ sortData }) => {
+export const Sidebar = ({ sortData, byMaxPrice, setMaxPrice, byMinPrice, setMinPrice }) => {
     return (
         <div className="sidebar">
             <ul className="sidebar__sort">
@@ -16,8 +16,8 @@ export const Sidebar = ({ sortData }) => {
             </ul>
             <ul className="sidebar__price">
                 <li><h5>Цена</h5></li>
-                <li> <label htmlFor="price-1"> от</label> <input type="text" name="price-1" id="price-1" placeholder="0" /></li>
-                <li> <label htmlFor="price-2"> до</label> <input type="text" name="price-2" id="price-2" placeholder="10000" /></li>
+                <li> <label htmlFor="price-1"> от</label> <input type="text" name="price-1" id="price-1" placeholder="0" value={byMinPrice} onChange={(e) => setMinPrice(e.target.value)} /></li>
+                <li> <label htmlFor="price-2"> до</label> <input type="text" name="price-2" id="price-2" placeholder="53382" defaultValue={byMaxPrice} onChange={(e) => setMaxPrice(e.target.value)} /></li>
             </ul>
         </div>
     )
