@@ -1,5 +1,5 @@
 const initialState = {
-  byMinPrice: 0,
+  byMinPrice: null,
 };
 export const minPrice = (state = initialState, action) => {
   switch (action.type) {

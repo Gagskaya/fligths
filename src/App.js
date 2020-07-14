@@ -30,13 +30,17 @@ const sortFlights = (flights, sortBy) => {
 const filterFlights = (flights, byMaxPrice, byMinPrice) => {
   return (
     flights &&
-    flights.filter(
-      (item) =>
-        item.flight.price.passengerPrices[0].singlePassengerTotal.amount >=
-          byMinPrice &&
-        item.flight.price.passengerPrices[0].singlePassengerTotal.amount <=
-          byMaxPrice
-    )
+    flights.filter((item) => {
+      if (byMaxPrice > 0)   {
+        return (
+          item.flight.price.passengerPrices[0].singlePassengerTotal.amount >=
+            byMinPrice &&
+          item.flight.price.passengerPrices[0].singlePassengerTotal.amount <=
+            byMaxPrice
+        );
+      }
+      return flights;
+    })
   );
 };
 const searchFlights = (flights, byMaxPrice, byMinPrice, sortBy) => {

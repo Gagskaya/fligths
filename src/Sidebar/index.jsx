@@ -16,7 +16,7 @@ export const Sidebar = ({ sortData, byMaxPrice, setMaxPrice, byMinPrice, setMinP
             </ul>
             <ul className="sidebar__price">
                 <li><h5>Цена</h5></li>
-                <li> <label htmlFor="price-1"> от</label> <input type="text" name="price-1" id="price-1" placeholder="0" value={byMinPrice} onChange={(e) => setMinPrice(e.target.value)} /></li>
+                <li> <label htmlFor="price-1"> от</label> <input type="text" name="price-1" id="price-1" placeholder="0" defaultValue={byMinPrice} onChange={(e) => setMinPrice(e.target.value)} /></li>
                 <li> <label htmlFor="price-2"> до</label> <input type="text" name="price-2" id="price-2" placeholder="53382" defaultValue={byMaxPrice} onChange={(e) => setMaxPrice(e.target.value)} /></li>
             </ul>
         </div>
