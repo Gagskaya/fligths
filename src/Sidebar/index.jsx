@@ -6,9 +6,9 @@ export const Sidebar = ({ sortData }) => {
         <div className="sidebar">
             <ul className="sidebar__sort">
                 <li><h5>Сортировать</h5></li>
-                <li onClick={() => alert('12')}><input type="radio" id="asc" defaultChecked name="sort" /> <label htmlFor="asc" > - По возрастанию цены</label></li>
-                <li><input type="radio" id="desc" name="sort" /> <label htmlFor="desc"> - По убыванию цены</label></li>
-                <li><input type="radio" id="time" name="sort" /> <label htmlFor="time"> - По времени</label></li>
+                <li onClick={() => sortData('high-price')}><input type="radio" id="asc" defaultChecked name="sort" /> <label htmlFor="asc" > - По возрастанию цены</label></li>
+                <li onClick={() => sortData('low-price')}><input type="radio" id="desc" name="sort" /> <label htmlFor="desc"> - По убыванию цены</label></li>
+                <li onClick={() => sortData('time')}><input type="radio" id="time" name="sort" /> <label htmlFor="time"> - По времени</label></li>
             </ul>
             <ul className="sidebar__filter">
                 <li><h5>Фильтровать</h5></li>

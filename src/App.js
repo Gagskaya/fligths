@@ -8,7 +8,18 @@ import { useEffect } from "react";
 import axios from "axios";
 import { orderBy } from "lodash";
 import { sortData } from "./actions/sortData";
-
+const sortFlights = (flights, sortBy) => {
+  switch (sortBy) {
+    case "high-price":
+      return orderBy(flights, "flight.price.total.amount", "asc");
+    case "low-price":
+      return orderBy(flights, "flight.price.total.amount", "desc");
+    case "time":
+      return orderBy(flights, "flight.legs[0].segments[0].travelDuration", "asc");
+    default:
+      return orderBy(flights, "flight.price.total.amount", "asc");
+  }
+};
 function App(props) {
   const { setData, flights, sortData } = props;
   useEffect(() => {
@@ -25,6 +36,6 @@ function App(props) {
   );
 }
 const mapStateToProps = ({ data, sort }) => ({
-  flights: data.data && data.data.result.flights,
+  flights: data.data && sortFlights(data.data.result.flights,sort.sortBy),
 });
 export default connect(mapStateToProps, { setData, sortData })(App);
