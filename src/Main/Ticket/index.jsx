@@ -7,7 +7,7 @@ export const Ticket = ({ flights }) => {
     return (
         <Fragment>
             {
-                flights && flights.map((item, index) => <div className="ticket" key={index}>
+                flights && flights.length ? flights.map((item, index) => <div className="ticket" key={index}>
                     <div className="header">
                         <span>{item.flight.carrier.caption} </span>
                         <ul>
@@ -27,7 +27,7 @@ export const Ticket = ({ flights }) => {
                     </div>
                     <button>Выбрать</button>
                 </div>
-                )
+                ) : 'Билетов не найдено'
             }
 
         </Fragment>
